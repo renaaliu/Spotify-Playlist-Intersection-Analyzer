@@ -2,12 +2,16 @@
 
 ## To Do
 
-* read Spotipy docs
-* code a website interface
+* Read Spotipy docs
+  - Understand Local Host connects probs, authoriztion/Bad Request
+
+* Figure out API wiring/backend
+  - How to access and use playlist data from multiple users on Spotify
+
+* Code a website interface
   - Login into Spotify button
   - Select playlist 1
   - Select playlist 2
   - Output playlist
-* figure out API wiring/backend
 
-  
+* Look for host (bug JHU ACM SysAdmin for JHU ACM server use?)
