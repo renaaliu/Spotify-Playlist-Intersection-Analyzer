@@ -2,7 +2,7 @@
 
 # export SPOTIPY_CLIENT_ID='af520fd93a334f3a8d3b5bb024095f48'
 # export SPOTIPY_CLIENT_SECRET='53ce2af7f47b4c6db890b61b0a48f790'
-# export SPOTIPY_REDIRECT_URI='http:localhost'
+# export SPOTIPY_REDIRECT_URI='http://google.com/'
 
 import spotipy
 import sys
