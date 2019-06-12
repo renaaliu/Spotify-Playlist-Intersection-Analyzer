@@ -90,7 +90,7 @@ try:
     token = util.prompt_for_user_token(username)
     #, scope) # add scope
 except (AttributeError, JSONDecodeError):
-    os.remove('.cache-{}'.format(username))
+    os.remove(f".cache-{username}")
     token = util.prompt_for_user_token(username)
     #, scope) # add scope
 # Create our spotify object with permissions
