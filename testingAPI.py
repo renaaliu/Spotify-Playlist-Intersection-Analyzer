@@ -1,79 +1,3 @@
-# If this works: should print all playlists of user
-# import spotipy
-# import sys
-
-# from spotipy.oauth2 import SpotifyClientCredentials
-
-# client_credentials_manager = SpotifyClientCredentials()
-# sp = spotipy.Spotify(client_credentials_manager = client_credentials_manager)
-
-# # taking spotify account from command line (for now)
-# user_id = sys.argv[1]
-
-# # what is this object type? linked list?
-# results = spotify.user_playlist(user_id)
-# playlists = results['items']
-
-# while results['next']:
-#     results = spotify.next(results)
-#     playlists.extend(results['items'])
-
-# for playlist in playlists:
-#     # is playlist also of dictionary type if you can index it?
-#     print(playlist['name'])
-
-
-
-# Add tracks to 'Your Collection' of saved tracks
-# import pprint
-# import sys
-
-# import spotipy
-# import spotipy.util as util
-
-# scope = 'user-library-modify'
-
-# if len(sys.argv) > 1:
-#     username = sys.argv[1]
-#     # tids = track id
-#     # tids = sys.argv[2:]
-# else:
-#     print("Usage: %s username track-id ..." % (sys.argv[0],))
-#     sys.exit()
-
-# token = util.prompt_for_user_token(username, scope)
-
-# if token:
-#     sp = spotipy.Spotify(auth=token)
-#     sp.trace = False
-#     # results = sp.current_user_saved_tracks_add(tracks=tids)
-#     pprint.pprint(results)
-# else:
-#     print("Can't get token for", username)
-
-
-# Print search results?
-# import spotipy
-# name = 'Halsey'
-# spotify = spotipy.Spotify()
-# results = spotify.search(q='artist:' + name, type='artist')
-# print(results)
-
-# Print albums from given artist
-# import spotipy
-# birdy_uri = 'spotify:artist:2WX2uTcsvV5OnS0inACecP'
-# spotify = spotipy.Spotify()
-
-# results = spotify.artist_albums(birdy_uri, album_type='album')
-# albums = results['items']
-# while results['next']:
-#     results = spotify.next(results)
-#     albums.extend(results['items'])
-
-# for album in albums:
-#     print(album['name'])
-
-
 # album art from given artist
 import os
 import sys
@@ -96,4 +20,29 @@ except (AttributeError, JSONDecodeError):
 # Create our spotify object with permissions
 spotifyObject = spotipy.Spotify(auth=token)
 
+# ask spotify for user's playlists
+playlists1 = spotifyObject.current_user_playlists()
 
+# eventually: spotifyObject.current_user_saved_tracks()
+
+# display autheticated user's playlists (or all saved songs)
+print(playlists)
+
+# allow for user to select one
+
+
+# ask spotify for all the songs in that playlist, save it in code
+spotifyObject.user_playlist_track(user, playlist_id=None, fields=None, limit=100, offset=0, market=None)
+
+# authentication process for second person
+# display second person's playlists
+# allow second person to select
+# ask spotify for all the songs in that playlist, save it in code
+
+# compare the saved songs on the two playlists
+    if (spotifyObject.current_user_saved_tracks_contains(song) 
+        && spotifyObject2.current_user_saved_tracks_contains(song)) {
+        intersection.add(song)
+    }
+
+# create new/display shared playlist of intersections
