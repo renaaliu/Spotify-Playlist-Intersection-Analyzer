@@ -1,4 +1,4 @@
-## Trying to create a thing that compares playlists of multiple people and creates a shared playlist of intersecting songs (that everyone enjoys!)
+## Trying to create an application that compares playlists of multiple people and creates a shared playlist of intersecting songs (that everyone enjoys!)
 
 ## To Do
 
