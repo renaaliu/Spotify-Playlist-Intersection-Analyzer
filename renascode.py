@@ -1,4 +1,5 @@
 # Rena Liu
+# Rena's Side Project Spotify account: sdb66l96nr80vo0q97urr06fo
 '''
 export SPOTIPY_CLIENT_ID='af520fd93a334f3a8d3b5bb024095f48'
 export SPOTIPY_CLIENT_SECRET='53ce2af7f47b4c6db890b61b0a48f790'
@@ -42,12 +43,20 @@ if token2:
     sp2 = spotipy.Spotify(auth=token2)
     results2 = sp2.current_user_saved_tracks(limit = 10)
     print('\n'+ username2 + "'s Saved Tracks:" + '\n')
-    for item in results2['items']:
-        track = item['track']
-        print(track['name'] + ' - ' + track['artists'][0]['name'])
+    for item2 in results2['items']:
+        track2 = item2['track']
+        print(track2['name'] + ' - ' + track2['artists'][0]['name'])
     print('\n')
 else:
-    print("Can't get token for", username)
+    print("Can't get token for", username2)
+
+# newPlaylist = [item for item in results if item in results2]
+print("Playlist Intersection:" + "\n")
+for item in results['items']:
+    if item in results2['items']:
+        track = item['track']
+        print(track['name'] + ' - ' + track['artists'][0]['name'])
+print('\n')
 
 # scope2 = 'playlist-modify-public'
 # token2 = util.prompt_for_user_token(username, scope2)
@@ -63,7 +72,7 @@ else:
 # else:
 #     print("Can't get token for", username)      
 
-# [item for item in results1 if item in results2]
+# 
 
 
 
