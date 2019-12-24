@@ -13,24 +13,57 @@ spotify = spotipy.Spotify()
 
 scope = 'user-library-read'
 
-if len(sys.argv) > 1:
+if len(sys.argv) > 2:
     username = sys.argv[1]
+    # playlist = sys.argv[2]
+    username2 = sys.argv[2]
 else:
-    print("Usage: %s username" % (sys.argv[0],))
-    sys.exit()     
+    # print("Please enter %s username and a playlist to analyze" % (sys.argv[0],))
+    print("Please enter %s both user's usernames" % (sys.argv[0],))
+    sys.exit()
 
 token = util.prompt_for_user_token(username, scope)
-#token2
 
 if token:
     sp = spotipy.Spotify(auth=token)
-    results = sp.current_user_saved_tracks()
-    results = item['track'] for item in results['items']
-    # for item in results['items']:
-    #     track = item['track']
-    #     print(track['name'] + ' - ' + track['artists'][0]['name'])
-    print(results)
+    results = sp.current_user_saved_tracks(limit = 10)
+    print(username + "'s Saved Tracks:" + '\n')
+    for item in results['items']:
+        track = item['track']
+        print(track['name'] + ' - ' + track['artists'][0]['name'])
+    print('\n')
 else:
     print("Can't get token for", username)
 
+
+token2 = util.prompt_for_user_token(username2, scope)
+
+if token2:
+    sp2 = spotipy.Spotify(auth=token2)
+    results2 = sp2.current_user_saved_tracks(limit = 10)
+    print('\n'+ username2 + "'s Saved Tracks:" + '\n')
+    for item in results2['items']:
+        track = item['track']
+        print(track['name'] + ' - ' + track['artists'][0]['name'])
+    print('\n')
+else:
+    print("Can't get token for", username)
+
+# scope2 = 'playlist-modify-public'
+# token2 = util.prompt_for_user_token(username, scope2)
+
+# if token2:
+#     sp2 = spotipy.Spotify(auth=token2)
+#     sp2.trace = False
+#     results2 = sp2.user_playlist_tracks(username, playlist)
+#     print("User 1's Tracks on" + playlist + "Playlist:" + '\n')
+#     for item in results2['items']:
+#         track = item['track']
+#         print(track['name'] + ' - ' + track['artists'][0]['name'])
+# else:
+#     print("Can't get token for", username)      
+
 # [item for item in results1 if item in results2]
+
+
+
