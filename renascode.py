@@ -6,6 +6,11 @@ export SPOTIPY_CLIENT_SECRET='53ce2af7f47b4c6db890b61b0a48f790'
 export SPOTIPY_REDIRECT_URI='http://0.0.0.0:8000/'
 '''
 
+'''
+part II
+
+'''
+
 import spotipy
 import sys
 import spotipy.util as util
